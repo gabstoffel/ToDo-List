@@ -13,4 +13,10 @@ router.post('/new', bodyParser.json(), (req, res) =>{
     res.send('post added');
 
 }) 
+router.delete('/del/:id', (req, res) => {
+    const {id} = req.params.id;
+    console.log(id);
+    postTask.deletePost(id);
+    res.send();
+})
 module.exports = router;

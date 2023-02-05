@@ -18,9 +18,10 @@ module.exports = {
     newPost(title, description){
         this.toDoTasks.push({id: this.generateID(), title, description});
     },
-    deletePost(){
-        
+    deletePost(id){
+        let postIndex = this.toDoTasks.indexOf((post) => {
+            post.id == id;
+        })
+        this.toDoTasks.splice(postIndex, 1);
     }
-
-
 }

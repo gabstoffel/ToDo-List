@@ -10,4 +10,3 @@ app.use(express.static(path.join(__dirname, "client")));
 app.listen(PORT, () => {
     console.log(`Server Running on port: ${PORT}`)
 })
-
