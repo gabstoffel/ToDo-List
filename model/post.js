@@ -3,7 +3,7 @@ module.exports = {
     toDoTasks: [
 
         {
-            id: 0,
+            id: this.generateID,
             title: 'ToDoTask',
             description: 'Task Description',
         }

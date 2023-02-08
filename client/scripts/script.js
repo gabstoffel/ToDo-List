@@ -51,9 +51,9 @@ function newPost(){
 
 }
 function deletePost(post){
-    let url = 'http://localhost:3030/api/del/' + toString(post.id);
-    console.log(url);
-    fetch(url).then((res) => {
+    let postID = new String(post.id);
+    let url = 'http://localhost:3030/api/del/' + postID;
+    fetch(url, ()=>{
         updatePosts();
     })
 }
