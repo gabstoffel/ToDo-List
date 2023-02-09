@@ -51,9 +51,12 @@ function newPost(){
 
 }
 function deletePost(post){
-    let postID = new String(post.id);
-    let url = 'http://localhost:3030/api/del/' + postID;
-    fetch(url, ()=>{
+    console.log(post)
+    fetch('http://localhost:3030/api/del/', {
+        method: "DELETE",
+        headers: new Headers({'Content-Type': 'text/html'}),
+        body: post,
+    }).then(() => {
         updatePosts();
     })
 }
