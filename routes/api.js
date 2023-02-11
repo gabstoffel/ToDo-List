@@ -18,5 +18,6 @@ router.delete('/del', bodyParser.json(), (req, res) => {
     console.log(`este é o id do post: ${postID}`);
     postTask.deletePost(postID);
     res.send();
+
 })
 module.exports = router;

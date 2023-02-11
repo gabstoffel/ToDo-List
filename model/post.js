@@ -11,11 +11,16 @@ module.exports = {
         this.toDoTasks.push({id: this.generateID(), title, description});
     },
     deletePost(postID){
+        /* console.log(this.toDoTasks[0].id);
         let postIndex = this.toDoTasks.indexOf((post) => {
-            post.id == postID.id;
+            post.id == postID;
+        }) */
+        this.toDoTasks.forEach((element) => {
+            if(element.id == postID){
+                let index = this.toDoTasks.indexOf(element)
+                this.toDoTasks.splice(index, 1);
+            }
+            return this.toDoTasks;
         })
-        if(postIndex > -1){
-            this.toDoTasks.splice(postIndex, 1);
-        }
     }
 }
