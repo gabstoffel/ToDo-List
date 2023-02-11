@@ -15,9 +15,8 @@ router.post('/new', bodyParser.json(), (req, res) =>{
 }) 
 router.delete('/del', bodyParser.json(), (req, res) => {
     let postID = req.body.id;
+    console.log(`este é o id do post: ${postID}`);
     postTask.deletePost(postID);
     res.send();
-    console.log(req.body)
-    console.log(req.headers)
 })
 module.exports = router;
