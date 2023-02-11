@@ -14,12 +14,9 @@ router.post('/new', bodyParser.json(), (req, res) =>{
 
 }) 
 router.delete('/del', bodyParser.json(), (req, res) => {
-    /* const {id} = req.params; */
-    /* const urlparams = new URLSearchParams(window.location.search);
-    const id = urlparams.get("id");
-    console.log(id);
-    postTask.deletePost(id);
-    res.send(); */
+    let postID = req.body.id;
+    postTask.deletePost(postID);
+    res.send();
     console.log(req.body)
     console.log(req.headers)
 })

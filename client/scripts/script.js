@@ -34,29 +34,38 @@ function updatePosts(){
     })
 }
 function newPost(){
-
     let title = document.getElementById('title').value;
     let description = document.getElementById('description').value;
-    let post = {title, description};
-    let options = {
-        method: "POST",
-        headers: new Headers({'content-type': 'application/json'}),
-        body: JSON.stringify(post),
+    if (title.length == 0 || description.length == 0) {
+        alert('you need to input a title and a description to your task!');
+    }else{
+        let post = {title, description};
+        let options = {
+            method: "POST",
+            headers: new Headers({'content-type': 'application/json'}),
+            body: JSON.stringify(post),
+        }
+        fetch('http://localhost:3030/api/new', options).then((res) => {
+            updatePosts();
+            document.getElementById('title').value = '';
+            document.getElementById('description').value = '';
+        })
     }
-    fetch('http://localhost:3030/api/new', options).then((res) => {
-        updatePosts();
-        document.getElementById('title').value = '';
-        document.getElementById('description').value = '';
-    })
-
 }
 function deletePost(post){
-    console.log(post)
-    fetch('http://localhost:3030/api/del/', {
+    let jsonID = {
+        id: post.id,
+    }
+    console.log(post);
+    let options = {
         method: "DELETE",
-        headers: new Headers({'Content-Type': 'text/html'}),
-        body: post,
-    }).then(() => {
+        headers: new Headers({
+            'content-type': 'application/json'
+        }),
+        body: JSON.stringify(jsonID),
+    }
+    fetch('http://localhost:3030/api/del', options).then((res) => {
         updatePosts();
+        console.log(res);
     })
 }

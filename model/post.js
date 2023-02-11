@@ -1,14 +1,6 @@
 module.exports = {
 
-    toDoTasks: [
-
-        {
-            id: this.generateID,
-            title: 'ToDoTask',
-            description: 'Task Description',
-        }
-    
-    ],
+    toDoTasks: [],
     generateID(){
         return Math.random().toString(36).substring(2, 9);
     },
