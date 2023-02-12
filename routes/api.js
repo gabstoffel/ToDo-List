@@ -1,7 +1,7 @@
-const express = require('express');
+import express from 'express';
+import bodyParser from 'body-parser';
+import postTask from '../model/post.js';
 const router = express.Router();
-const bodyParser = require('body-parser');
-const postTask = require('../model/post');
 
 router.get('/all', (req, res) => {
     res.json(JSON.stringify(postTask.getAll()));
@@ -18,6 +18,6 @@ router.delete('/del', bodyParser.json(), (req, res) => {
     console.log(`este é o id do post: ${postID}`);
     postTask.deletePost(postID);
     res.send();
-
+    
 })
-module.exports = router;
+export default router;

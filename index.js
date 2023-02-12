@@ -1,7 +1,12 @@
-const express = require('express');
-const apiRoutes = require('./routes/api');
+import express from 'express';
+import apiRoutes from './routes/api.js';
+import path from 'path';
 const app = express();
-const path = require('path');
+import { fileURLToPath } from 'url';
+
+const __filename = fileURLToPath(import.meta.url);
+
+const __dirname = path.dirname(__filename);
 
 let PORT = 3030;
 
